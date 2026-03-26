@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dashboard - Bootstrap 5 ngulik</title>
+    
+    <!-- Bootstrap 5 CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-windows"></i> My Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-bell"></i> Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-gear"></i> Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-person-circle"></i> Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 px-0 sidebar d-md-block collapse" id="sidebarMenu">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-page="dashboard">
+                                <i class="bi bi-discord"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="reports">
+                                <i class="bi bi-file-earmark-text"></i> Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="analytics">
+                                <i class="bi bi-graph-up"></i> Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="users">
+                                <i class="bi bi-people"></i> Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="products">
+                                <i class="bi bi-cart"></i> Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="messages">
+                                <i class="bi bi-whatsapp"></i> Messages
+                            </a>
+                        </li>
+                    </ul>
+
+                    <hr class="text-white">
+
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="logoutBtn">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
+                <!-- Welcome Section -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Welcome Back, <span id="userName">Reiki</span>!</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-primary" id="exportBtn">
+                            <i class="bi bi-download"></i> Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stat-card bg-primary text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-uppercase mb-1">Total Sales</h6>
+                                        <h2 class="mb-0" id="totalSales">$32,000</h2>
+                                    </div>
+                                    <div class="fs-1">
+                                        <i class="bi bi-currency-dollar"></i>
+                                    </div>
+                                </div>
+                                <small class="mt-2 d-block">
+                                    <i class="bi bi-arrow-up"></i> <span id="salesChange">12%</span> increase
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stat-card bg-success text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-uppercase mb-1">New Orders</h6>
+                                        <h2 class="mb-0" id="newOrders">156</h2>
+                                    </div>
+                                    <div class="fs-1">
+                                        <i class="bi bi-cart-check"></i>
+                                    </div>
+                                </div>
+                                <small class="mt-2 d-block">
+                                    <i class="bi bi-arrow-up"></i> <span id="ordersChange">8%</span> increase
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stat-card bg-warning text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-uppercase mb-1">Total Users</h6>
+                                        <h2 class="mb-0" id="totalUsers">1,284</h2>
+                                    </div>
+                                    <div class="fs-1">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                </div>
+                                <small class="mt-2 d-block">
+                                    <i class="bi bi-arrow-up"></i> <span id="usersChange">5%</span> increase
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stat-card bg-danger text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-uppercase mb-1">Messages</h6>
+                                        <h2 class="mb-0" id="totalMessages">45</h2>
+                                    </div>
+                                    <div class="fs-1">
+                                        <i class="bi bi-inbox"></i>
+                                    </div>
+                                </div>
+                                <small class="mt-2 d-block">
+                                    <i class="bi bi-arrow-down"></i> <span id="messagesChange">3%</span> decrease
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Tables Row -->
+                <div class="row">
+                    <!-- Recent Activity -->
+                    <div class="col-lg-8 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0"><i class="bi bi-activity"></i> Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Product</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="activityTableBody">
+                                            <!-- Table rows will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0"><i class="bi bi-lightning"></i> Quick Actions</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-primary" id="addProductBtn">
+                                        <i class="bi bi-plus-circle"></i> Add New Product
+                                    </button>
+                                    <button class="btn btn-outline-success" id="addUserBtn">
+                                        <i class="bi bi-person-plus"></i> Add New User
+                                    </button>
+                                    <button class="btn btn-outline-info" id="generateReportBtn">
+                                        <i class="bi bi-file-earmark-text"></i> Generate Report
+                                    </button>
+                                    <button class="btn btn-outline-warning" id="sendNewsletterBtn">
+                                        <i class="bi bi-envelope"></i> Send Newsletter
+                                    </button>
+                                </div>
+
+                                <hr class="my-3">
+
+                                <h6 class="mb-3">Recent Notifications</h6>
+                                <div class="list-group list-group-flush" id="notificationsList">
+                                    <!-- Notifications will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0"><i class="bi bi-bar-chart"></i> Monthly Progress</h5>
+                            </div>
+                            <div class="card-body" id="progressBars">
+                                <!-- Progress bars will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript Bundle with Popper from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
